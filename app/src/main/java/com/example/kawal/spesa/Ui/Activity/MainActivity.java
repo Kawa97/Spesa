@@ -1,11 +1,17 @@
-package com.example.kawal.spesa;
+package com.example.kawal.spesa.Ui.Activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.kawal.spesa.Logic.ListeUtils;
+import com.example.kawal.spesa.R;
+import com.example.kawal.spesa.Ui.Fragment.CarrelloFragment;
+import com.example.kawal.spesa.Ui.Fragment.EliminatiFragment;
+import com.example.kawal.spesa.Ui.Fragment.ListaFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ListeUtils.inizio(getApplicationContext());
         FragmentManager fragmentManager= getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         ListaFragment listaFragment=new ListaFragment();
@@ -52,4 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 }
+
+
 }

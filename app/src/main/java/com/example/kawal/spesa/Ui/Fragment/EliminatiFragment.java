@@ -1,4 +1,4 @@
-package com.example.kawal.spesa;
+package com.example.kawal.spesa.Ui.Fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,14 +8,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.kawal.spesa.Data.ListeSingleton;
+import com.example.kawal.spesa.R;
+import com.example.kawal.spesa.Ui.Adapter.CustomArrayAdapter;
+
+import java.util.List;
+
 /**
  * Created by kawal on 28/02/2018.
  */
 
 public class EliminatiFragment extends Fragment{
 
-    static final String[] Eliminati = new String[] {"Mele","Banane"};
+    static final String[] Eliminat = new String[] {"Mele","Banane"};
 
+    final List<String> Eliminati = ListeSingleton.getInstance().getListaEliminati();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
