@@ -15,8 +15,8 @@ public class ListeUtils {
 
     public static void inizio(Context context) {
         String inizio ="Mele";
-        String inizio2 ="Mele";
-        String inizio3 ="Mele";
+        String inizio2 ="Pere";
+        String inizio3 ="Banane";
         addLista(context, inizio);
         addListaEliminati(context, inizio2);
         addListaCarrello(context, inizio3);
@@ -28,12 +28,11 @@ public class ListeUtils {
         return ListeSingleton.getInstance().getLista();
     }
 
-    public static List<String> addLista(Context context, String itemToAdd) {
+    public static void addLista(Context context, String itemToAdd) {
         List<String> lista = ListeUtils.getLista(context);
         lista.add(itemToAdd);
 
         ListeSingleton.getInstance().setLista(lista);
-        return lista;
     }
 
     public static String getListaItem(Context context, int index) {
@@ -41,12 +40,11 @@ public class ListeUtils {
         return lista.get(index);
     }
 
-    public static List<String> removeItemAtIndex(Context context, int index) {
+    public static void removeListaItem(Context context, int index) {
         List<String> lista = ListeUtils.getLista(context);
         lista.remove(index);
 
         ListeSingleton.getInstance().setLista(lista);
-        return lista;
     }
 
 
@@ -57,11 +55,10 @@ public class ListeUtils {
         return ListeSingleton.getInstance().getListaEliminati();
     }
 
-    public static List<String> addListaEliminati(Context context, String itemToAdd) {
+    public static void addListaEliminati(Context context, String itemToAdd) {
         List<String> lista = ListeUtils.getListaEliminati(context);
         lista.add(itemToAdd);
         ListeSingleton.getInstance().setListaEliminati(lista);
-        return lista;
     }
 
     public static String getListaEliminatiItem(Context context, int index) {
@@ -69,12 +66,11 @@ public class ListeUtils {
         return lista.get(index);
     }
 
-    public static List<String> removeListaEliminatiItem(Context context, int index) {
+    public static void removeListaEliminatiItem(Context context, int index) {
         List<String> lista = ListeUtils.getListaEliminati(context);
         lista.remove(index);
 
         ListeSingleton.getInstance().setListaEliminati(lista);
-        return lista;
     }
 
 
@@ -85,12 +81,11 @@ public class ListeUtils {
         return ListeSingleton.getInstance().getListaCarrello();
     }
 
-    public static List<String> addListaCarrello(Context context, String itemToAdd) {
+    public static void addListaCarrello(Context context, String itemToAdd) {
         List<String> lista = ListeUtils.getListaCarrello(context);
         lista.add(itemToAdd);
 
         ListeSingleton.getInstance().setListaCarrello(lista);
-        return lista;
     }
 
     public static String getListaCarrelloItem(Context context, int index) {
@@ -98,12 +93,11 @@ public class ListeUtils {
         return lista.get(index);
     }
 
-    public static List<String> removeListaCarrelloItem(Context context, int index) {
+    public static void removeListaCarrelloItem(Context context, int index) {
         List<String> lista = ListeUtils.getListaCarrello(context);
         lista.remove(index);
 
         ListeSingleton.getInstance().setListaCarrello(lista);
-        return lista;
     }
 
 

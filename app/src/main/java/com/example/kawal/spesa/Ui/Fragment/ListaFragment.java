@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kawal.spesa.Data.ListeSingleton;
+import com.example.kawal.spesa.Logic.ListeUtils;
 import com.example.kawal.spesa.R;
 import com.example.kawal.spesa.Ui.Adapter.CustomArrayAdapter;
 
@@ -36,7 +37,7 @@ public class ListaFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        final CustomArrayAdapter adapter = new CustomArrayAdapter(getActivity(),Lista);
+        final CustomArrayAdapter adapter = new CustomArrayAdapter(getActivity(),ListeSingleton.getInstance().getLista());
         final ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -46,7 +47,7 @@ public class ListaFragment extends Fragment {
                 builder.setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Lista.remove(position);
+                        ListeUtils.removeListaItem(getActivity(),position);
                         adapter.notifyDataSetChanged();
                     }
                 });

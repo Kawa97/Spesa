@@ -1,6 +1,8 @@
 package com.example.kawal.spesa.Ui.Fragment;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kawal.spesa.Data.ListeSingleton;
+import com.example.kawal.spesa.Logic.ListeUtils;
 import com.example.kawal.spesa.R;
 import com.example.kawal.spesa.Ui.Adapter.CustomArrayAdapter;
 
@@ -33,13 +36,23 @@ public class EliminatiFragment extends Fragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        CustomArrayAdapter adapter = new CustomArrayAdapter(getActivity(),Eliminati);
+        final CustomArrayAdapter adapter = new CustomArrayAdapter(getActivity(),ListeSingleton.getInstance().getListaEliminati());
         final ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //fai cose
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Sei sicuro di voler rimuovere sto coso?");
+                builder.setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ListeUtils.removeListaEliminatiItem(getActivity(),position);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+                builder.show();
             }
 
         });

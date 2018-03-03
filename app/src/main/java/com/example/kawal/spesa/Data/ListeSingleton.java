@@ -14,9 +14,9 @@ public class ListeSingleton {
         return ourInstance;
     }
 
-    private List<String> listaEliminati;
-    private List<String> lista;
-    private List<String> listaCarrello;
+    private List<String> listaEliminati= new ArrayList<>();
+    private List<String> lista= new ArrayList<>();
+    private List<String> listaCarrello= new ArrayList<>();
 
     private ListeSingleton() {
         this.lista = new ArrayList<String>();
